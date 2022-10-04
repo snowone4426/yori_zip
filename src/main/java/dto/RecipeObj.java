@@ -1,0 +1,154 @@
+package dto;
+
+import java.util.Date;
+import java.util.Map;
+import java.util.Vector;
+
+public class RecipeObj {
+	private String recipeId;
+	private String userId;
+	private String title;
+	private String thumbnail;
+	private String level;
+	private String time;
+	private String subtitle;
+	private String discription;
+	private Date create_at;
+	private Date update_at;
+	private String state;
+	private String[] detail_desc;
+	private String[] detail_photo;
+	private String[] main_category;
+	private String[] sub_category;
+	private Vector<Map<String,String>> ingredient;
+
+	public RecipeObj () {}
+	
+	public String[] getDetail_desc() {
+		return detail_desc;
+	}
+
+	public void setDetail_desc(String[] detail_desc) {
+		this.detail_desc = detail_desc;
+	}
+
+	public String[] getDetail_photo() {
+		return detail_photo;
+	}
+
+	public void setDetail_photo(String[] detail_photo) {
+		this.detail_photo = detail_photo;
+	}
+
+	public String getRecipeId() {
+		return recipeId;
+	}
+
+	public void setRecipeId(String recipeId) {
+		this.recipeId = recipeId;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+
+	public String getLevel() {
+		return level;
+	}
+
+	public void setLevel(String level) {
+		this.level = level;
+	}
+
+	public String getTime() {
+		return time;
+	}
+
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	public String getSubtitle() {
+		return subtitle;
+	}
+
+	public void setSubtitle(String subtitle) {
+		this.subtitle = subtitle;
+	}
+
+	public String getDiscription() {
+		return discription;
+	}
+
+	public void setDiscription(String discription) {
+		this.discription = discription;
+	}
+
+	public Date getCreate_at() {
+		return create_at;
+	}
+
+	public void setCreate_at(Date create_at) {
+		this.create_at = create_at;
+	}
+
+	public Date getUpdate_at() {
+		return update_at;
+	}
+
+	public void setUpdate_at(Date update_at) {
+		this.update_at = update_at;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+	
+	public String[] getMain_category() {
+		return main_category;
+	}
+
+	public void setMain_category(String[] main_category) {
+		this.main_category = main_category;
+	}
+
+	public String[] getSub_category() {
+		return sub_category;
+	}
+
+	public void setSub_category(String[] sub_category) {
+		this.sub_category = sub_category;
+	}
+	
+	public Vector<Map<String, String>> getIngredient() {
+		return ingredient;
+	}
+
+	public void setIngredient(Vector<Map<String, String>> ingredient) {
+		this.ingredient = ingredient;
+	}
+}
