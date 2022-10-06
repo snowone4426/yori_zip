@@ -5,12 +5,13 @@ import java.util.Map;
 import java.util.Vector;
 
 public class RecipeObj {
-	private String recipeId;
-	private String userId;
+	private String recipe_id;
+	private String user_id;
 	private String title;
 	private String thumbnail;
 	private String level;
 	private String time;
+	private String star_score;
 	private String subtitle;
 	private String discription;
 	private Date create_at;
@@ -20,7 +21,8 @@ public class RecipeObj {
 	private String[] detail_photo;
 	private String[] main_category;
 	private String[] sub_category;
-	private Vector<Map<String,String>> ingredient;
+	private String[] ingredient_name;
+	private String[] ingredient_quantity;
 
 	public RecipeObj () {}
 	
@@ -40,20 +42,20 @@ public class RecipeObj {
 		this.detail_photo = detail_photo;
 	}
 
-	public String getRecipeId() {
-		return recipeId;
+	public String getRecipe_id() {
+		return recipe_id;
 	}
 
-	public void setRecipeId(String recipeId) {
-		this.recipeId = recipeId;
+	public void setRecipe_id(String recipe_id) {
+		this.recipe_id = recipe_id;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getTitle() {
@@ -142,13 +144,5 @@ public class RecipeObj {
 
 	public void setSub_category(String[] sub_category) {
 		this.sub_category = sub_category;
-	}
-	
-	public Vector<Map<String, String>> getIngredient() {
-		return ingredient;
-	}
-
-	public void setIngredient(Vector<Map<String, String>> ingredient) {
-		this.ingredient = ingredient;
 	}
 }

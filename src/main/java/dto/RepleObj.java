@@ -3,9 +3,9 @@ package dto;
 import java.util.Date;
 
 public class RepleObj {
-	private String repleId;
-	private String userId;
-	private String recipeId;
+	private String reple_id;
+	private String user_id;
+	private String recipe_id;
 	private String contents;
 	private Date create_at;
 	private Date update_at;
@@ -13,28 +13,28 @@ public class RepleObj {
 	
 	public RepleObj () {}
 
-	public String getRepleId() {
-		return repleId;
+	public String getReple_id() {
+		return reple_id;
 	}
 
-	public void setRepleId(String repleId) {
-		this.repleId = repleId;
+	public void setReple_id(String reple_id) {
+		this.reple_id = reple_id;
 	}
 
-	public String getUserId() {
-		return userId;
+	public String getUser_id() {
+		return user_id;
 	}
 
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
-	public String getRecipeId() {
-		return recipeId;
+	public String getRecipe_id() {
+		return recipe_id;
 	}
 
-	public void setRecipeId(String recipeId) {
-		this.recipeId = recipeId;
+	public void setRecipe_id(String recipe_id) {
+		this.recipe_id = recipe_id;
 	}
 
 	public String getContents() {

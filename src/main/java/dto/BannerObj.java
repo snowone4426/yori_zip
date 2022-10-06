@@ -3,7 +3,7 @@ package dto;
 import java.util.Date;
 
 public class BannerObj {
-	private String bannerId;
+	private String banner_id;
 	private String photo;
 	private String alt;
 	private Date created_at;
@@ -13,12 +13,12 @@ public class BannerObj {
 	
 	public BannerObj() {}
 
-	public String getBannerId() {
-		return bannerId;
+	public String getBanner_id() {
+		return banner_id;
 	}
 
-	public void setBannerId(String bannerId) {
-		this.bannerId = bannerId;
+	public void setBanner_id(String banner_id) {
+		this.banner_id = banner_id;
 	}
 
 	public String getPhoto() {
