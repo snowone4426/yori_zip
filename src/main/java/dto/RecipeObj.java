@@ -145,4 +145,28 @@ public class RecipeObj {
 	public void setSub_category(String[] sub_category) {
 		this.sub_category = sub_category;
 	}
+
+	public String getStar_score() {
+		return star_score;
+	}
+
+	public void setStar_score(String star_score) {
+		this.star_score = star_score;
+	}
+
+	public String[] getIngredient_name() {
+		return ingredient_name;
+	}
+
+	public void setIngredient_name(String[] ingredient_name) {
+		this.ingredient_name = ingredient_name;
+	}
+
+	public String[] getIngredient_quantity() {
+		return ingredient_quantity;
+	}
+
+	public void setIngredient_quantity(String[] ingredient_quantity) {
+		this.ingredient_quantity = ingredient_quantity;
+	}
 }
