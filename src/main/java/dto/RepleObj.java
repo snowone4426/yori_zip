@@ -10,6 +10,8 @@ public class RepleObj {
 	private Date create_at;
 	private Date update_at;
 	private String state;
+	private String nickname;
+	private String profile;
 	
 	public RepleObj () {}
 
@@ -68,5 +70,23 @@ public class RepleObj {
 	public void setState(String state) {
 		this.state = state;
 	}
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
+
+  public String getProfile() {
+    return profile;
+  }
+
+  public void setProfile(String profile) {
+    this.profile = profile;
+  }
+	
+	
 	
 }
