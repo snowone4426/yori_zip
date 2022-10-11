@@ -14,9 +14,27 @@ public class UserObj {
 	private Date last_access;
 	private String state;
 	
+	// 추가 - 원근
+	private String question;
+	private String answer;
+	
 	public UserObj () {}
 	
+	// get set 추가 - 원근
+    public String getQuestion() {
+      return question;
+    }
+    public void setQuestion(String question) {
+      this.question = question;
+    }
+    public String getAnswer() {
+      return answer;
+    }
+    public void setAnswer(String answer) {
+      this.answer = answer;
+    }    
 	
+    
 	public String getUser_id() {
 		return user_id;
 	}
