@@ -132,6 +132,7 @@ table {
 
 </head>
 <body>
+<jsp:include page="nav.jsp"/>
 <div class="reple">
 		
 			<form method="post" action="repleProcess.jsp">
@@ -176,13 +177,20 @@ table {
 						<td><%=dto.getNickname() %></td>
 						<td><%=dto.getCreate_at() %></td>
 						<td><%=dto.getContents() %></td>
+<%	
+	String user_id = (String)session.getAttribute("user_id");
+	if(user_id != null && user_id.equals(dto.getUser_id())){
+		
+%>
 						<td><button type="button" onclick="location.href='repleEdit.jsp?reple_id=<%=dto.getReple_id()%>';"><img src="assets/modify.png"></button></td>
-						<td><button onclick="deleteReple();"><img src="assets/delete.png"></button></td>
+						<td><button type="button" onclick="location.href='repleDeleteProcess.jsp?reple_id=<%=dto.getReple_id()%>';"><img src="assets/delete.png"></button></td>
 					</tr>
 				</tbody>
-			
+<%} %>			
+				
 <%} %>	
 	</table>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>
