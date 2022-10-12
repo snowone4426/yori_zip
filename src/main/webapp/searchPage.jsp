@@ -4,10 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>임시 페이지</title>
+<title>Search Page</title>
 </head>
 <body>
-<jsp:include page="nav.jsp"/>
-<h1>성공</h1>
+
 </body>
 </html>

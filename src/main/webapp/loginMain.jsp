@@ -21,6 +21,7 @@
 </style>
 
 <body>
+<jsp:include page="nav.jsp"/>
 
 <jsp:include page="nav.jsp"/>
 

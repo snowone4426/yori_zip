@@ -16,14 +16,14 @@ public class RepleDAO extends DBConnPool {
                      + " reple_id, user_id, recipe_id, contents, "
                      + " created_at, updated_at, state) "
                      + " values ( seq_reple_id.NEXTVAL, ?, ?, ?, sysdate, null, 'common')";
-       //System.out.print(query);
-       //System.out.print(con);
+     
        psmt= con.prepareStatement(query);
        psmt.setString(1, dto.getUser_id());
        psmt.setString(2, dto.getRecipe_id());
        psmt.setString(3, dto.getContents());
        
        //동적 쿼리 실행
+     
        result= psmt.executeUpdate();
   } catch (Exception e) {
         System.out.println("댓글 입력 중 예외 발생");
@@ -36,13 +36,14 @@ public class RepleDAO extends DBConnPool {
      ArrayList<RepleObj> list = new ArrayList<RepleObj>();
      
      try {
-         String query = "select R.reple_id, U.profile, U.nickname, R.created_at, R.contents "
+         String query = "select R.user_id, R.reple_id, U.profile, U.nickname, R.created_at, R.contents "
                        + " from user_info U inner join reple R on U.USER_ID=R.USER_ID order by R.created_at DESC";
          psmt= con.prepareStatement(query);
          rs= psmt.executeQuery();
          
          while(rs.next()) {
            RepleObj dto= new RepleObj();
+           dto.setUser_id(rs.getString("user_id"));
            dto.setProfile(rs.getString("profile"));
            dto.setNickname(rs.getString("nickname"));
            dto.setCreate_at(rs.getDate("created_at"));
@@ -68,7 +69,7 @@ public class RepleDAO extends DBConnPool {
          try {
            //update 쿼리문 작성
            String query = " update reple set contents=? where reple_id = ? ";
-           //쿼리문 완성
+           //쿼리문 완성 
            psmt= con.prepareStatement(query);
            psmt.setString(1, dto.getContents());
            psmt.setString(2, dto.getReple_id());
@@ -86,13 +87,22 @@ public class RepleDAO extends DBConnPool {
          return result;   
    }
    
-   
-   
-   
-   
-   
-
-   
-   
+     public int deleteReple(RepleObj dto) {
+       int result = 0;
+        try {
+            String query = " delete from reple where reple_id= ? ";
+            
+            psmt= con.prepareStatement(query);
+            psmt.setString(1, dto.getReple_id());
+            
+            result = psmt.executeUpdate();
+            
+        } catch (Exception e) {
+            System.out.println("댓글 삭제 중 예외 발생");
+            e.printStackTrace();
+        }
+        return result; 
+       
+     }
 
 }
