@@ -14,9 +14,15 @@
 	color : black;
 }
 
+.pwdLink{
+	text-decoration : none;
+	color : black;
+}
 </style>
 
 <body>
+<jsp:include page="nav.jsp"/>
+
 <jsp:include page="nav.jsp"/>
 
     <form action="loginProcess.jsp" method="post" name="loginForm">
@@ -32,7 +38,7 @@
                 </tr>
 				
 				<tr>
-					<td><a class="memLink" href="policy.jsp">회원가입</a> &nbsp; 비밀번호찾기 </td>
+					<td><a class="memLink" href="policy.jsp">회원가입</a> &nbsp; <a class="pwdLink" href="#" onClick="searchPwd()">비밀번호찾기</a> </td>
 				</tr>
 				
                 <tr>
@@ -46,4 +52,14 @@
 <jsp:include page="footer.jsp"/>
 
 </body>
+
+<script>
+
+function searchPwd(){
+	 window.open("pwdSearch.jsp", "a", "width=400, height=300, left=100, top=50");	 
+}
+
+</script>
+
+
 </html>
