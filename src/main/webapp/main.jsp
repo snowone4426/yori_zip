@@ -37,6 +37,9 @@
    		width : 100%;
    		list-style : none;
    		}
+   	.cards a {
+   		text-decoration : none;
+   	}
    	.card{
    		width : 25%;
    		float : left;
@@ -80,7 +83,7 @@
 	 <div id="container">
       <header>
          <nav>
-           <%--@ include file = "nav.jsp" --%>
+           <%@ include file = "nav.jsp" %>
          </nav>
        </header>
        <main id="contents">
@@ -101,7 +104,7 @@
          </div>
          
        </main>
-      <footer><%--@ include file = "footer.jsp"--%></footer>
+      <footer><%@ include file = "footer.jsp"%></footer>
       
    </div>
 </body>
