@@ -28,7 +28,7 @@
 		
 		dao.updateTime(email);
 		// 로그인 성공 시 메인페이지로 이동
-		response.sendRedirect("reple.jsp");
+		response.sendRedirect("main.jsp");
 		
 	}else{
 		
