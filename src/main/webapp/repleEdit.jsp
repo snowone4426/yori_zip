@@ -4,12 +4,7 @@
 <%@page import="dao.RepleDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String reple_id = request.getParameter("reple_id");
-	
-  	
-
-
-
+<% String myreple_id = request.getParameter("reple_id");
 %>    
     
 
@@ -138,6 +133,7 @@ table {
 
 </head>
 <body>
+<jsp:include page="nav.jsp"/>
 <div class="reple">
 		
 			<form method="post" action="repleProcess.jsp">
@@ -174,24 +170,37 @@ table {
 
 	RepleDAO dao = new RepleDAO();
 	ArrayList<RepleObj> repleList = dao.repleList();
-	
 	for(RepleObj dto:repleList){
-%>				<form method="post" action="repleEditProcess.jsp" >
-					<input type="hidden" name="reple_id" value="<%=dto.getReple_id() %>"/>
-					
+		
+%>				
+		<form method="post" action="repleEditProcess.jsp" >
+			<input type="hidden" name="reple_id" value="<%=dto.getReple_id() %>"/>
 				<tbody>
 					<tr>
 						<td><%=dto.getProfile() %></td>
 						<td><%=dto.getNickname() %></td>
 						<td><%=dto.getCreate_at() %></td>
+						
+<%
+		String user_id = (String)session.getAttribute("user_id");
+		
+		if(dto.getReple_id() !=null && myreple_id.equals(dto.getReple_id()) ){
+%>
 						<td><input type="text" name= "replecontent" value="<%=dto.getContents() %>"/></td>
 						<td><button type="submit" >작성완료</button></td>
 						<td><button type="reset">다시입력</button></td>
 					</tr>
 				</tbody>
-				</form>
+				
+<%}
+		else{ %>
+			<td><%=dto.getContents() %></td>
+			
+<%	}%> 
+</form> 
 <%} %>	
 	</table>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>
