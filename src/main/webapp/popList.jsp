@@ -9,6 +9,7 @@
 	RecipeObj dto1 = new RecipeObj();
 
 	List<RecipeObj> popularList = dao1.getPopList();
+	dao1.close();
 	//dto1 = popularList.get(0);
 %>
 	
@@ -18,13 +19,19 @@
 	int count1 = 0;
 	for(RecipeObj popli : popularList) {
 		count1++;
-	%> <ul>
-		<li class = "card"><img src = ".<%=popli.getThumbnail() %>"><br>
-		<%=popli.getSubtitle() %> <br>
-		<b><%=popli.getTitle() %></b> <br>
-		<%= popli.getLevel() %>
-		<%= popli.getTime() %>
-		<%= popli.getStar_score() %></li>
+	%> <% if(count1==1) {%> <ul> <% } %>
+		<li class = "card">
+		<div class="card_frame"><img class = "card_photo" src = "<%=popli.getThumbnail() %>"></div>
+		<div class="card_desc">
+			<div class = "card_subTitle"><%=popli.getSubtitle() %></div> 
+			<div class = "card_title"><%=popli.getTitle() %></div>
+			<div class = "card_score">
+				<img class="card_level" src = "./images/difficulty.png"><%= popli.getLevel() %>
+				<img class="card_level" src = "./images/time.png"><%= popli.getTime() %>
+				<img class="card_level" src = "./images/score.png"><%= popli.getStar_score() %>	
+			</div>
+		</div>
+		</li>
 <%
 		if(count1 == popularList.size()) { %>	</ul> <% } 
 	}

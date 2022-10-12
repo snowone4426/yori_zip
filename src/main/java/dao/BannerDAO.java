@@ -13,7 +13,10 @@ public class BannerDAO extends DBConnPool{
         List<BannerObj> list = new Vector<BannerObj>();
         // 배너는 거기 들어 있는 태그 정보를 따서 그 태그를 조건으로 검색해서
         //list 로 뿌려주는 page로 이동
-        String query = "select * from banner";
+        String query = "select banner_id, photo, alt, search "
+                     + "  from banner "
+                     + " where search = '5'"
+                     + "   and rownum < 5 ";
         try{
           psmt = con.prepareStatement(query);
           
@@ -23,14 +26,10 @@ public class BannerDAO extends DBConnPool{
 //          rs가 여러개올거란말이지 그럼 돌려서 출력해조야지
             while(rs.next()) {
               BannerObj obj = new BannerObj();
-              obj.setBanner_id(rs.getString(1));
-              obj.setPhoto(rs.getString(2));
-              obj.setAlt(rs.getString(3));
-              obj.setCreated_at(rs.getDate(4));
-              obj.setStart_date(rs.getDate(5));
-              obj.setEnd_date(rs.getDate(6));
-              obj.setSearch(rs.getString(7));
-            
+              obj.setBanner_id(rs.getString("BANNER_ID"));
+              obj.setPhoto(rs.getString("PHOTO"));
+              obj.setAlt(rs.getString("ALT"));
+              obj.setSearch(rs.getString("SEARCH"));            
               list.add(obj);
             }
           

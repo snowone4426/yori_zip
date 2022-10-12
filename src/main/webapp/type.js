@@ -1,12 +1,12 @@
-function typeBanner( recipeId, userId, photo, alt){
+function typeBanner( banner_id, photo, alt, tag_id){
 
-    var recipeId;
-    var userId;
+    var banner_id;
     var photo;
     var alt;
+    var tag_id;
     
-    this.recipeId = recipeId;
-    this.userId   = userId;
-    this.photo    = photo;
-    this.alt      = alt;
+    this.banner_id = banner_id;
+    this.photo     = photo;
+    this.alt       = alt;
+    this.tag_id    = tag_id;
 }

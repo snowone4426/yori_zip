@@ -17,7 +17,8 @@ public class ThemeListDAO extends DBConnPool{
           + "    on t.recipe_id = r.recipe_id"
           + "  join tag g"
           + "    on g.tag_id = t.tag_id "
-          + "where t.tag_id >= 5";
+          + "   where t.tag_id >= 5";
+          
         
       psmt = con.prepareStatement(query);
       rs = psmt.executeQuery();

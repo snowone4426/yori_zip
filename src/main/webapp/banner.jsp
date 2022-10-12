@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+    <%@ page import = "dao.BannerDAO" %>
+    <%@ page import = "dto.BannerObj" %>
+    <%@ page import = "java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,10 +11,11 @@
 <title>Insert title here</title>
 <style type="">
 	#cake {
-		width : 80%;
+		width : 100%;
 		height : 400px;	
 	}
 	#banner {
+		width : 90%;
 		text-align : center;
 	}
 </style>
@@ -22,12 +27,19 @@
    var banner   = new typeBanner();
    var banners  = new Array();
 
-   banners.push(new typeBanner(1,1,"images/recipe/carrot.jpg",""));
-   banners.push(new typeBanner(2,1,"images/recipe/hotcake.jpg",""));
-   banners.push(new typeBanner(3,1,"images/recipe/carrot.jpg",""));
-   banners.push(new typeBanner(4,1,"images/recipe/hotcake.jpg",""));
-   banners.push(new typeBanner(5,1,"images/recipe/1.jpg",""));
+   <%
+	BannerDAO banDao = new BannerDAO();
+	BannerObj banObj = new BannerObj();
 
+	List<BannerObj> bannerList = banDao.BannerList();
+	banDao.close();
+	
+	for( BannerObj banner : bannerList ){
+		%>
+		banners.push(new typeBanner(<%=banner.getBanner_id()%>,"<%=banner.getPhoto()%>","<%=banner.getAlt()%>",<%=banner.getSearch()%>));
+		<%
+	 }
+%>
    document.addEventListener("DOMContentLoaded", function () {
       setInterval(setBannerInterval, 1000);
    });
@@ -35,7 +47,7 @@
 <body>
 	<div id="banner">
         <a href="javascript:procBanner()">
-           <img src="images/recipe/cake.jpg" alt="핫케이크" id="cake">
+           <img src="images/recipe/hotcake.jpg" alt="핫케이크" id="cake">
         </a>
     </div>
 </body>

@@ -8,6 +8,7 @@ ThemeListDAO dao = new ThemeListDAO();
 ThemeListDTO dto = null;
 
 List<ThemeListDTO> list = dao.getThemeList();
+dao.close();
 dto = list.get(0);
 %>
 <div class="themeHead">

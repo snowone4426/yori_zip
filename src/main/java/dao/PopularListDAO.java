@@ -12,10 +12,14 @@ public class PopularListDAO extends DBConnPool{
     List<RecipeObj> popList = new Vector<RecipeObj>();
     
     try {
-      String query = "select r.recipe_id, thumbnail, subtitle, title, difficulty, time, score "
-          + "from recipe r join star s "
-          + "on r.recipe_id = s. recipe_id "
-          + "order by score desc";
+      String query = "select * "
+          + "  from ( "
+          + "       select r.recipe_id, r.thumbnail, r.subtitle, r.title, r.difficulty, r.time, s.score "
+          + "       from recipe r join star s "
+          + "       on r.recipe_id = s. recipe_id "
+          + "       order by score desc "
+          + "       ) "
+          + "  where rownum < 9 ";
       
       psmt = con.prepareStatement(query);
       rs = psmt.executeQuery();

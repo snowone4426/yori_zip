@@ -12,7 +12,7 @@ public class ThemeListDAO2 extends DBConnPool{
     List<RecipeObj> themeList = new Vector<RecipeObj>();
     
     try {
-      String query = "select r.recipe_id, r.thumbnail, subtitle, title, t.tag_id, r.difficulty, r.time, s.score "
+      String query = "select r.recipe_id, r.thumbnail, r.subtitle, r.title, t.tag_id, r.difficulty, r.time, s.score "
           + "          from recipe r"
           + "          join recipetag t "
           + "          on t.recipe_id = r.recipe_id "

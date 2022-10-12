@@ -6,7 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Main Page</title>
-<style type="">
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+<style>
+	
 	#container{
 		width : 100%;
 		display : grid;
@@ -16,30 +18,60 @@
 		'main'
 		'footer'; 
 	}
-	 ul {
-	     list-style-type : none;
-	 }
+	#bannerArea{
+		padding-left: 10%;
+	}
+	
 	 .themeArea {padding-left: 10%;
 	 			margin-top : 20px;
-	 			height : 220px;}
-	   .theme     { width: 90%; }
-   .themeHead { width: 40%; height: 200px; float: left; }
-   .themeHead img { width: 100%; height: 100%;}
-   .themeItem { width: 60%; height: 100px; float: left; }
-   .themeItem ul { margin: 0 0 0 20px; padding: 0; width: 100%; height: 50px; float: left; }
-   .themeItem li { margin: 0 5px; width: 100px; height: 100px; float: left;}
+	 			height: 300px;}
+	 			
+	 .themeHead {
+	 	width: 90%;
+	 	margin-bottom : 10px;}
+	
+	 .theme     { width: 90%; }
+	   
+   .cards { width: 100%; }
+   .cards ul {
+   		width : 100%;
+   		list-style : none;
+   		}
+   	.card{
+   		width : 25%;
+   		float : left;
+   	}
+   	.card_desc {
+   		height : 50px;
+   	}
+   	.card_subTitle, .card_title, .card_score {
+   		font-size : 12px;
+   	}
+   	.card_title {
+   		font-weight : bold;
+   	}
 
-   .themeItem img { width: 100%; height: 100%;}
+    	
+   	.card_photo{
+   		width : 100%;
+   	}
+	.card_level  {width: 10px; height: 10px;}
+	.card_time   {width: 10px; height: 10px;}
+	.card_star   {width: 10px; height: 10px;}
    
-   .popArea {padding-left: 10%;
-	 			margin-top : 20px;
-	 			clear: both;}
-   .popmenu {}
-   
-   .cards ul li img{
-   		width : 20%;
-   		height : 20%;
+   .popArea {
+	   padding-left: 10%;
+	   margin-top : 30px;
+	   clear: both;}
+	 			
+	.popHead {width: 90%;
+	 	margin-bottom : 10px;}
+	 	
+   .popmenu {
+   width : 90%;
    }
+   
+   
    
    
 </style>
@@ -47,13 +79,8 @@
 <body>
 	 <div id="container">
       <header>
-         <div id="logo">
-            <h1>로고가 올거시야</h1>
-         </div>
          <nav>
-           <ul id="topMenu">
-            <li> 네비게이션에 들어갈 카테고리 메뉴가 올거시야</li>
-           </ul>
+           <%--@ include file = "nav.jsp" --%>
          </nav>
        </header>
        <main id="contents">
@@ -61,20 +88,20 @@
             <%@ include file = "banner.jsp" %>
          </div>
          <div class = "themeArea">
-            <div class="theme">This Week's Theme</div>
+            <div class="themeHead">This Week's Theme</div>
             <div class="theme">
 				<%@ include file = "themeList2.jsp" %>
 			</div>
          </div>
          <div class = "popArea">
-            <div class="popmenu">Popular Recipes</div>
+            <div class="popHead">Popular Recipes</div>
             <div class="popmenu">
 				<%@ include file = "popList.jsp" %>
 			</div>
          </div>
          
        </main>
-      <footer><%-- include file = "정은이가 만든 footer.jsp" --%></footer>
+      <footer><%--@ include file = "footer.jsp"--%></footer>
       
    </div>
 </body>

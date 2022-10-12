@@ -17,13 +17,18 @@
 		int count = 0;
 		for(RecipeObj themli : themeList) {
 			count++;
-			%> <ul>  
-			<li class="card"><img src = ".<%= themli.getThumbnail()%>"> <br>
-			<%=themli.getSubtitle() %> <br>
-			<b><%= themli.getTitle() %></b> <br>
-			<%= themli.getLevel() %>
-			<%= themli.getTime() %>
-			<%= themli.getStar_score() %> </li>
+			if(count==1) { %> <ul> <% } %> 
+			<li class="card"><img class = "card_photo" src = "<%= themli.getThumbnail()%>"> 
+			<div class="card_desc">
+				<div class = "card_subTitle"><%=themli.getSubtitle() %> </div>
+				<div class = "card_title"><%= themli.getTitle() %></div>
+				<div class = "card_score">
+					<img class="card_level" src = "./images/difficulty.png"><%= themli.getLevel() %>
+					<img class="card_level" src = "./images/time.png"><%= themli.getTime() %>
+					<img class="card_level" src = "./images/score.png"><%= themli.getStar_score() %>
+				</div>
+			</div>
+			</li>
 	<% 		
 			if(count == themeList.size()) { %> </ul> <% 
 				}
