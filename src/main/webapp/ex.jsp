@@ -7,6 +7,7 @@
 <title>임시 페이지</title>
 </head>
 <body>
+<jsp:include page="nav.jsp"/>
 <h1>성공</h1>
 </body>
 </html>

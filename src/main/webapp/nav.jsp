@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "dto.UserObj" %>
+<%@ page import="dao.UserDAO"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -220,17 +222,24 @@ width:577px;
 			<button type="submit"><img src="assets/search.png"></button>
 			</form>
 			</div>
-				<% if(session.getAttribute("user_id")==null){ %> 
+				<% 
+				//UserDAO dao = new UserDAO();
+				//UserObj dto = dao.get
+				//getUserObj(){
+				//	UserObj dto= new UserObj();
+				
+				
+				if(session.getAttribute("email")==null){ %> 
 				<a href="loginMain.jsp" class="login">로그인</a>
 				<%} else { %>
-					 
-				<%if(session.getAttribute("gender").equals("M")) {		
-				%>
+				 <%if(session.getAttribute("gender").equals("M")) {		
+					%>
 				<a href="#" class="male"><img src="assets/mypage_male.png"></a>
 				<%} else { %>
 				<a href="#" class="female"><img src="assets/mypage_female.png"></a>
 				<%}%>
-				<a href="#" class="logout">로그아웃</a>
+				
+				<a href="logoutProcess.jsp" class="logout">로그아웃</a>	
 				<%} %>
 		</div>
 </div>
