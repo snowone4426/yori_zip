@@ -9,7 +9,7 @@ public class BannerObj {
 	private Date created_at;
 	private Date start_date;
 	private Date end_date;
-	private String search;
+	private String search; // 이걸 태그 ID로 생각하자
 	
 	public BannerObj() {}
 

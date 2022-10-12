@@ -4,66 +4,16 @@
 <%@page import="dao.RepleDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String reple_id = request.getParameter("reple_id");
-	
-  	
-
-
-
+<% String myreple_id = request.getParameter("reple_id");
 %>    
     
-
+<link rel="stylesheet" href="css/main.css">
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>comment</title>
 <style>
-<style>
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-*{box-sizing:border-box;}
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 
 .commentbox {
 	box-sizing: border-box;
@@ -138,6 +88,7 @@ table {
 
 </head>
 <body>
+<jsp:include page="nav.jsp"/>
 <div class="reple">
 		
 			<form method="post" action="repleProcess.jsp">
@@ -174,24 +125,37 @@ table {
 
 	RepleDAO dao = new RepleDAO();
 	ArrayList<RepleObj> repleList = dao.repleList();
-	
 	for(RepleObj dto:repleList){
-%>				<form method="post" action="repleEditProcess.jsp" >
-					<input type="hidden" name="reple_id" value="<%=dto.getReple_id() %>"/>
-					
+		
+%>				
+		<form method="post" action="repleEditProcess.jsp" >
+			<input type="hidden" name="reple_id" value="<%=dto.getReple_id() %>"/>
 				<tbody>
 					<tr>
 						<td><%=dto.getProfile() %></td>
 						<td><%=dto.getNickname() %></td>
 						<td><%=dto.getCreate_at() %></td>
+						
+<%
+		String user_id = (String)session.getAttribute("user_id");
+		
+		if(dto.getReple_id() !=null && myreple_id.equals(dto.getReple_id()) ){
+%>
 						<td><input type="text" name= "replecontent" value="<%=dto.getContents() %>"/></td>
 						<td><button type="submit" >작성완료</button></td>
 						<td><button type="reset">다시입력</button></td>
 					</tr>
 				</tbody>
-				</form>
+				
+<%}
+		else{ %>
+			<td><%=dto.getContents() %></td>
+			
+<%	}%> 
+</form> 
 <%} %>	
 	</table>
 	</div>
+	<jsp:include page="footer.jsp"/>
 </body>
 </html>

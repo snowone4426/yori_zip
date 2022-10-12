@@ -18,6 +18,9 @@
 	if(dto.getEmail() != null){
 		session.setAttribute("email", dto.getEmail());
 		session.setAttribute("password", dto.getPassword());
+		session.setAttribute("user_id", dto.getUser_id());
+		session.setAttribute("gender", dto.getGender());
+		session.setAttribute("type", dto.getType());
 		
 		
 		
@@ -25,7 +28,7 @@
 		
 		dao.updateTime(email);
 		// 로그인 성공 시 메인페이지로 이동
-		response.sendRedirect("ex.jsp");
+		response.sendRedirect("reple.jsp");
 		
 	}else{
 		
