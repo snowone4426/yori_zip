@@ -24,7 +24,6 @@
 <jsp:include page="nav.jsp"/>
 
 
-
     <form action="loginProcess.jsp" method="post" name="loginForm">
 
         <div>

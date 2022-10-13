@@ -23,6 +23,8 @@ public class RecipeObj {
 	private String[] sub_category;
 	private String[] ingredient_name;
 	private String[] ingredient_quantity;
+	private String nickname;
+    private String profile;
 
 	public RecipeObj () {}
 	
@@ -169,4 +171,21 @@ public class RecipeObj {
 	public void setIngredient_quantity(String[] ingredient_quantity) {
 		this.ingredient_quantity = ingredient_quantity;
 	}
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
+
+  public String getProfile() {
+    return profile;
+  }
+
+  public void setProfile(String profile) {
+    this.profile = profile;
+  }
+	
 }

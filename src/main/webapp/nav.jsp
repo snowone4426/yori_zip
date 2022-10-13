@@ -169,7 +169,7 @@ width:577px;
 
 <div class="nav_h">
 	<div class="nav_h_l">
-	<h1>logo</h1>
+	<h1><a href = "main.jsp">logo</a></h1>
 	</div>
 		<div class="nav_h_r">
 			<!-- 검색폼 -->

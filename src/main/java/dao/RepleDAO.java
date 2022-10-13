@@ -1,5 +1,8 @@
 package dao;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 import dto.RepleObj;
 import util.DBConnPool;
@@ -21,6 +24,7 @@ public class RepleDAO extends DBConnPool {
        psmt.setString(1, dto.getUser_id());
        psmt.setString(2, dto.getRecipe_id());
        psmt.setString(3, dto.getContents());
+      
        
        //동적 쿼리 실행
      
@@ -104,5 +108,64 @@ public class RepleDAO extends DBConnPool {
         return result; 
        
      }
+     
+     public int selectCount() {
+       int totalcount=0;
+       try {
+         String query = "select count(*) from reple";
+         
+         psmt = con.prepareStatement(query);
+         rs= psmt.executeQuery();
+         
+         rs.next();
+         totalcount = rs.getInt(1);
+    
+         
+      } catch (Exception e) {
+        System.out.println("게시물 수 구하는 중 예외 발생");
+        e.printStackTrace();
+      }
+      return totalcount;  
+     }
 
+     //페이징
+     public List<RepleObj> selectListPage(Integer start,Integer end){
+       List<RepleObj> list = new Vector<RepleObj>();
+       
+       String query=  " select R.user_id, R.reple_id, U.profile, U.nickname, "
+           + " R.created_at, R.contents  "
+           + " from user_info U inner join reple R on U.USER_ID=R.USER_ID "
+           + " where rownum between ? and ? order by R.reple_id DESC ";
+       
+       try {
+           psmt = con.prepareStatement(query);
+           psmt.setInt(1, start);
+           psmt.setInt(2, end);
+           //System.out.println(start);
+           //System.out.println(end);
+           rs= psmt.executeQuery();
+           if(rs!=null) {
+           while(rs.next()) {
+               RepleObj dto = new RepleObj();
+               dto.setUser_id(rs.getString("user_id"));
+               //System.out.print(rs.getString("user_id"));
+               dto.setProfile(rs.getString("profile"));       
+               dto.setNickname(rs.getString("nickname"));
+               dto.setCreate_at(rs.getDate("created_at"));
+               dto.setContents(rs.getString("contents"));
+               dto.setReple_id(rs.getString("reple_id"));
+               list.add(dto);
+           }}else {
+             System.out.println("rs");
+           }
+       } catch (Exception e) {
+               System.out.println("게시물 조회 중 예외 발생");
+               e.printStackTrace();       
+       }
+       
+       
+       return list;
+       
+       
+   }
 }

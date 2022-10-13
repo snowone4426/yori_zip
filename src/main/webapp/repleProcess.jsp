@@ -17,7 +17,7 @@
 	dto.setContents(reple);
 	dto.setUser_id(session.getAttribute("user_id").toString());
 		//dto.setRecipe_id(session.getAttribute("recipe_id").toString());
-	dto.setRecipe_id("9");
+	dto.setRecipe_id("6");
 %>
 
 <%
