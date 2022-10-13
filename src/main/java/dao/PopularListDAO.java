@@ -14,7 +14,7 @@ public class PopularListDAO extends DBConnPool{
     try {
       String query = "select * "
           + "from ( "
-          +     "select r.recipe_id, r.thumbnail, r.subtitle, r.title, r.difficulty, r.time, round(avg(s.score),1) sc "
+          +     "select r.recipe_id, r.thumbnail, r.subtitle, r.title, r.difficulty, r.time, round(avg(score),1) sc "
           +     "from recipe r join star s "
           +     " on r.recipe_id = s. recipe_id "
           +     " group by r.recipe_id, r.thumbnail, r.subtitle, r.title, r.difficulty, r.time "
