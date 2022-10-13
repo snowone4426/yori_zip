@@ -174,7 +174,7 @@ width:577px;
 		<div class="nav_h_r">
 			<!-- 검색폼 -->
 			<div class="search">
-			<form method="get" action="#">
+			<form method="get" action="searchPage.jsp">
 			<input type="text" name="searchword"/>
 			<button type="submit"><img src="assets/search.png"></button>
 			</form>

@@ -8,6 +8,15 @@ list-style-type: disc;
     margin-inline-end: 0px;
     padding-inline-start: 0;
 }
+   a:link     { color: black; }
+   a:hover    { color: #8DBD1E; }
+   a:visited  { color: black; }
+   a:active   { color: black; }
+   
+	.card_level  {width: 10px; height: 10px;}
+	.card_time   {width: 10px; height: 10px;}
+	.card_star   {width: 10px; height: 10px;}
+/*여기까지 은선이가 작성한 default css */   
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
