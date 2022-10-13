@@ -36,7 +36,7 @@
         			<% 	
         				for(int i = 0; i < dao.questionList().size(); i++){
         			%>
-        			<option><% out.print(dao.questionList().get(i));%></option>
+        			<option value="<%= i+1%>"><% out.print(dao.questionList().get(i));%></option>
         					 
         			<%
 	        			}

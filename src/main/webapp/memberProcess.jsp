@@ -32,11 +32,15 @@
     String email = mr.getParameter("member_email");
 	String password = mr.getParameter("memberPw");
 	String nickname = mr.getParameter("memeber_nick");
-	String question = mr.getParameter("member_question");
+	//String question = mr.getParameter("member_question");
 	String answer = mr.getParameter("answer");
 	
 	String gender = mr.getParameter("gender");	
 
+	String passCheck = mr.getParameter("password_check");
+	
+	int question = Integer.parseInt(mr.getParameter("member_question"));
+	
 	UserObj dto = new UserObj();
 	dto.setEmail(email);
 	dto.setPassword(password);
@@ -51,12 +55,20 @@
 	int result = dao.registerMember(dto);
 	dao.close();
 	
-	if(result == 1){
-		response.sendRedirect("loginMain.jsp");
+	if(password.equals(passCheck)){
+	
+		if(result == 1){
+			response.sendRedirect("loginMain.jsp");
+		}else{
+			
+			request.getRequestDispatcher("memberMain.jsp").forward(request, response);
+		}
 	}else{
 		
-		request.getRequestDispatcher("memberMain.jsp").forward(request, response);
-	}
+		out.println("<script>alert('비밀번호가 일치하지 않습니다');</script>");
+		out.println("<script>location.href='memberMain.jsp';</script>");
+	}			
+	
 	
 %>    
     

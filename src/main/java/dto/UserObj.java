@@ -15,16 +15,16 @@ public class UserObj {
 	private String state;
 	
 	// 추가 - 원근
-	private String question;
+	private int question;
 	private String answer;
 	
 	public UserObj () {}
 	
 	// get set 추가 - 원근
-    public String getQuestion() {
+    public int getQuestion() {
       return question;
     }
-    public void setQuestion(String question) {
+    public void setQuestion(int question) {
       this.question = question;
     }
     public String getAnswer() {

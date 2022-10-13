@@ -19,7 +19,7 @@ public class UserDAO extends DBConnPool{
     // 전화번호 나중에
     try {
         String query = "INSERT INTO user_info VALUES "
-                        + "(seq_user_id.nextval, ?, ?, ?, ?, ?, ?, ?, 'c', sysdate, null, 'common')";
+                        + "(seq_user_id.nextval, ?, ?, ?, ?, ?, ?, ?, 'c', sysdate, null, 'c')";
         
         psmt = con.prepareStatement(query);
         psmt.setString(1, dto.getEmail());
@@ -27,7 +27,7 @@ public class UserDAO extends DBConnPool{
         psmt.setString(3, dto.getNickname());
         psmt.setString(4, dto.getProfile());
         psmt.setString(5, dto.getGender());
-        psmt.setString(6, dto.getQuestion());
+        psmt.setInt(6, dto.getQuestion());
         psmt.setString(7, dto.getAnswer());
         
         register = psmt.executeUpdate();
@@ -100,12 +100,6 @@ public class UserDAO extends DBConnPool{
 		return dto;
 	}
 	
-	
-	
-	
-	
-	
-	
 	   // 로그인 시 마지막 접속시간 등록
     public void updateTime(String email) {
         
@@ -171,15 +165,15 @@ public class UserDAO extends DBConnPool{
 	
     
     // 비밀번호 찾기
-    public UserObj searchPwd(String email, String question, String answer) {
+    public UserObj searchPwd(String email, int question, String answer) {
         UserObj dto = new UserObj();
         
         try {
-            String query = "select password from user_info where email = ? and question = ? and answer = ?";
+            String query = "select password from user_info where email = ? and question_id = ? and answer = ?";
             
             psmt = con.prepareStatement(query);
             psmt.setString(1, email);
-            psmt.setString(2, question);
+            psmt.setInt(2, question);
             psmt.setString(3, answer);
             rs = psmt.executeQuery();
                     
