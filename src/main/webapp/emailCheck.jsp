@@ -7,7 +7,7 @@
 <title>이메일 찾기</title>
 </head>
 <body>
-<h1>이메일 찾기</h1>
+<h1>이메일 중복확인</h1>
 
 <form action="emailCheckProcess.jsp" method="post">
 

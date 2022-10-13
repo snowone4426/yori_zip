@@ -16,12 +16,13 @@
 <jsp:include page="nav.jsp"/>
 
 <div class="wrapper">   
-<form method="post" name="policyForm">
+<form method="post" name="policyForm" id="policy_Form">
 
 <div class="container">
 
 <h1>서비스 이용 약관</h1>
 
+<div class=input__check">
 <h3>제 1장 총칙</h3>
 <textarea rows="13" cols="100">
 제 1 조 (목적)
@@ -45,9 +46,10 @@
 6. 컨텐츠 : 당 사이트에서 서비스 하는 문자, 그래픽, 파일, SW를 지칭
 7. 본 약관에서 정의하지 않은 용어는 개별서비스에 대한 별도약관 및 이용규정에서 정의합니다.
 </textarea>
-<br><input type="checkbox" name="checkbox" id="checkbox" value="policy_1"><label>위 약관에 동의합니다.</label>     
-     
+<br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>     
+</div>     
        
+<div class=input__check">       
 <h3>제 2장 이용계약의 체결</h3>
 <textarea rows="10" cols="100">
 제 5 조 (이용 계약의 성립)
@@ -85,8 +87,10 @@
 2. ID와 비밀번호에 관한 모든 관리의 책임은 회원에게 있으며, 회원의 ID나 비밀번호가 부정하게 사용되었다는 사실을 발견한 경우에는 즉시 당 사이트에 신고하여야 합니다. 신고를 하지 않음으로 인한 모든 책임은 회원 본인에게 있습니다.
 3. 이용자는 당 사이트 서비스의 사용 종료시 마다 정확히 접속을 종료하도록 해야 하며, 정확히 종료하지 아니함으로써 제3자가 이용자에 관한 정보를 이용하게 되는 등의 결과로 인해 발생하는 손해 및 손실에 대하여 당 사이트는 책임을 부담하지 아니합니다.
 </textarea>        
-<br><input type="checkbox" name="checkbox" id="checkbox" value="policy_2"><label>위 약관에 동의합니다.</label>  
+<br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>  
+</div>  
   
+<div class=input__check">  
 <h3>제 3장 서비스의 이용</h3>
 <textarea rows="13" cols="100">
 제 10 조 (서비스의 이용 시간)
@@ -101,8 +105,10 @@
 5. 당 사이트는 이용자가 본 약관의 내용에 위배되는 행동을 한 경우, 임의로 서비스 사용을 제한 및 중지할 수 있습니다. 이 경우 당 사이트는 위 이용자의 접속을 금지할 수 있습니다.
 </textarea>
 
-<br><input type="checkbox" name="checkbox" id="checkbox" value="policy_3"><label>위 약관에 동의합니다.</label>
+<br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>
+</div>
 
+<div class=input__check">
 <h3>제 4장 서비스 사용 제한 및 계약의 해지</h3>
 <textarea rows="13" cols="100">
 제 12 조 (이용자의 행동규범 및 서비스 이용제한)
@@ -129,18 +135,18 @@
 2. 당 사이트는 회원이 제 4장 13조의 내용을 위반하고, 당 사이트 소정의 기간 이내에 이를 해소하지 않는 경우 이용계약을 해지 할 수 있습니다.
 3. 당 사이트는 2항에 의해서 계약이 해지된 회원이 다시 이용신청을 하는 경우 일정기간 그 승낙을 제한할 수 있습니다.
 </textarea>
-<br><input type="checkbox" name="checkbox" id="checkbox" value="policy_4"><label>위 약관에 동의합니다.</label>
+<br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>
 </div>
 
+</div>
 
+<div>
 
-<div class="click_button">
+    <button type="button" name="Check All" id="CheckAll" onClick="this.value=check(this.form.checkbox)">전부 동의</button>
+ 
+    <button type="submit" id="checkBtn" onclick="check_agree()">다음</button>
 
-    <button type="button" name="Check All" onClick="this.value=check(this.form.checkbox)">전부 동의</button>
-    <button type="button" onclick="check_agree()">다음</button>
-
-</div>    
-
+</div>
 
 </form>
        
@@ -148,8 +154,19 @@
 
 
 
-<script type="text/javascript">
+
+
+<jsp:include page="footer.jsp"/>
+
+</body>
+
+
+<script>
+// type="text/javascript"
 //<a href="memberMain.jsp">
+
+/**/
+ //버튼에onClick="this.value=check(this.form.checkbox)"
 var checkflag = "false";
 function check(field) {
 if (checkflag == "false") {
@@ -175,11 +192,68 @@ function check_agree() {
   	}
  }
 
+/*
+const form = document.querySelector('#policy_Form');
+const checkAll = document.querySelector('.click_button_all button');
+const checkBoxes = document.querySelectorAll('.input__check input');
+const submitButton = document.querySelector('#checkBtn');
 
+const agreements = {
+		checkbox_o : false,
+		checkbox_t : false,
+		checkbox_th : false,
+		checkbox_f : false
+};
 
+form.addEventListener('submit', (e) => e.preventDefault()); // 새로고침(submit) 되는 것 막음
+
+checkBoxes.forEach((item) => item.addEventListener('input', toggleCheckbox));
+
+function toggleCheckbox(e) {
+  const { checked, id } = e.target;  
+  agreements[id] = checked;
+  this.parentNode.classList.toggle('active');
+  checkAllStatus();
+  toggleSubmitButton();
+}
+
+function checkAllStatus() {
+  const { checkbox_o, checkbox_t, checkbox_th, checkbox_f } = agreements;
+  if (checkbox_o && checkbox_t && checkbox_th && checkbox_f) {
+    checkAll.checked = true;
+  } else {
+    checkAll.checked = false;
+  }
+}
+
+function toggleSubmitButton() {
+  const { checkbox_o, checkbox_t, checkbox_th, checkbox_f } = agreements;
+  if (checkbox_o && checkbox_t && checkbox_th && checkbox_f) {
+    submitButton.disabled = false;
+  } else {
+    submitButton.disabled = true;
+  }
+}
+
+checkAll.addEventListener('click', (e) => {
+  const { checked } = e.target;
+  if (checked) {
+    checkBoxes.forEach((item) => {
+      item.checked = true;
+      agreements[item.id] = true;
+      item.parentNode.classList.add('active');
+    });
+  } else {
+    checkBoxes.forEach((item) => {
+      item.checked = false;
+      agreements[item.id] = false;
+      item.parentNode.classList.remove('active');
+    });
+  }
+  toggleSubmitButton();
+});
+*/
 </script>
 
-<jsp:include page="footer.jsp"/>
 
-</body>
 </html>

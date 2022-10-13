@@ -11,6 +11,7 @@
 	String email = request.getParameter("user_email"); //이메일
 	String password = request.getParameter("user_password"); // 비밀번호
 	
+	
 	UserDAO dao = new UserDAO();
 	UserObj dto = dao.getUserObj(email, password);
 	

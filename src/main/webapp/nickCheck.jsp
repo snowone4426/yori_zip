@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>닉네임 확인</h1>
+<h1>닉네임 중복확인</h1>
 
 <form action = "nickCheckProcess.jsp" method="post">
 

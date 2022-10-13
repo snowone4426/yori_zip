@@ -30,11 +30,11 @@
         <div>
             <table>
                 <tr>
-                    <td><input type="email" name="user_email" autofocus placeholder="EMAIL" required></td>
+                    <td><input type="email" name="user_email" class="infoText" id="user_email"  autofocus placeholder="EMAIL" required></td>
                 </tr>
                 
                 <tr>
-                    <td><input type="password" name="user_password" autofocus placeholder="PASSWORD" required></td>
+                    <td><input type="password" name="user_password" class="infoText" id="user_password" autofocus placeholder="PASSWORD" required></td>
                 </tr>
 				
 				<tr>
@@ -42,7 +42,7 @@
 				</tr>
 				
                 <tr>
-                    <td><input type="submit" value="로그인"></td>
+                    <td><input type="submit" value="로그인" disabled id="login_btn"></td>
                 </tr>
             </table>
         </div>
@@ -57,6 +57,23 @@
 
 function searchPwd(){
 	 window.open("pwdSearch.jsp", "a", "width=400, height=300, left=100, top=50");	 
+}
+
+
+//const formWrap = document.querySelector('.infoText');
+const idForm = document.querySelector('#user_email');
+const pwForm = document.querySelector('#user_password');
+const loginBtn = document.querySelector('#login_btn')
+idForm.addEventListener('keyup', activeEvent);
+pwForm.addEventListener('keyup', activeEvent);
+loginBtn.addEventListener('click', errorEvent);
+function activeEvent() {
+	  switch(!(idForm.value && pwForm.value)){
+	    case true : loginBtn.disabled = true; 
+	    break;
+	    case false : loginBtn.disabled = false; 
+	    break;
+	  }
 }
 
 </script>
