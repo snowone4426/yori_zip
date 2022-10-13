@@ -14,10 +14,11 @@
 <main>
 	<article>
 	<div>
-	<%
+	<%	String recipe_id= request.getParameter("recipe_id");
+	System.out.println(recipe_id);
 		RecipeDAO dao = new RecipeDAO();
-		List<RecipeObj> recipe = dao.getRecipe();
-		
+		List<RecipeObj> recipe = dao.getRecipe(recipe_id);
+		for(RecipeObj dto:recipe){
 	
 	%>
 	<p><img src="<%=dto.getThumbnail() %>"></p>

@@ -11,6 +11,7 @@
 	String email = request.getParameter("user_email"); //이메일
 	String password = request.getParameter("user_password"); // 비밀번호
 	
+	
 	UserDAO dao = new UserDAO();
 	UserObj dto = dao.getUserObj(email, password);
 	
@@ -28,7 +29,7 @@
 		
 		dao.updateTime(email);
 		// 로그인 성공 시 메인페이지로 이동
-		response.sendRedirect("reple.jsp");
+		response.sendRedirect("main.jsp");
 		
 	}else{
 		

@@ -13,13 +13,17 @@ import util.DBConnPool;
 
 public class RecipeDAO extends DBConnPool {
   
-   public List<RecipeObj> getRecipe(){
+   public List<RecipeObj> getRecipe(String recipe_id){
      List<RecipeObj> recipe = new Vector<RecipeObj>();
      
      try {
-      String query = " select R.user_id, R.recipe_id, R.thumbnail, R.subtitle, R.title, R.difficulty,  R.time, R.discription, U.profile, U.nickname, R.created_at  from user_info U inner join recipe R on U.user_id= R.user_id";
+      String query = " select R.user_id, R.recipe_id, R.thumbnail, R.subtitle, "
+          + "   R.title, R.difficulty,  R.time, R.discription, U.profile, U.nickname, R.created_at  "
+          + "   from user_info U inner join recipe R on U.user_id= R.user_id "
+          + "   where  recipe_id= ? ";
       
       psmt = con.prepareStatement(query);
+      psmt.setString(1,recipe_id);
       rs= psmt.executeQuery();
       
       while(rs.next()) {

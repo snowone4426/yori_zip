@@ -195,9 +195,7 @@ width:577px;
 				<%} else { %>
 				<a href="#" class="female"><img src="assets/mypage_female.png"></a>
 				<%}%>
-				
-				
-				
+
 				<a href="logoutProcess.jsp" class="logout">로그아웃</a>	
 
 				<%} %>
