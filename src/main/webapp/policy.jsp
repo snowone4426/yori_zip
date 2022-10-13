@@ -6,8 +6,13 @@
 <meta charset="UTF-8">
 <title>이용약관</title>
 </head>
-
+<link rel="stylesheet" href="css/main.css">
 <style>
+
+textarea{
+    border: 1px solid #D4D4D4;
+}
+
 
 </style>
 
@@ -15,7 +20,7 @@
 
 <jsp:include page="nav.jsp"/>
 
-<div class="wrapper">   
+<div class="wrapper" align="center">   
 <form method="post" name="policyForm" id="policy_Form">
 
 <div class="container">
@@ -24,7 +29,7 @@
 
 <div class=input__check">
 <h3>제 1장 총칙</h3>
-<textarea rows="13" cols="100">
+<textarea rows="10" cols="120">
 제 1 조 (목적)
 본 약관은 OLIS(Opensource-software License Information System) 웹 사이트 (이하 "당 사이트")가 제공하는 모든 서비스(이하 "서비스")의 이용조건 및 절차, 이용자와 당 사이트간의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.
       
@@ -51,7 +56,7 @@
        
 <div class=input__check">       
 <h3>제 2장 이용계약의 체결</h3>
-<textarea rows="10" cols="100">
+<textarea rows="10" cols="120">
 제 5 조 (이용 계약의 성립)
 1. 이용계약은 신청자가 온라인으로 당 사이트에서 제공하는 소정의 가입신청 양식에서 요구하는 사항을 기록하여 가입을 완료하고 회원가입 버튼을 누르는 것으로 성립됩니다.
 2. 이용계약은 회원 1인당 1개의 ID로 체결하는 것을 원칙으로 합니다.
@@ -92,7 +97,7 @@
   
 <div class=input__check">  
 <h3>제 3장 서비스의 이용</h3>
-<textarea rows="13" cols="100">
+<textarea rows="10" cols="120">
 제 10 조 (서비스의 이용 시간)
 1. 서비스 이용시간은 당 사이트의 업무상 또는 기술상 특별한 지장이 없는 한 연중 무휴, 1일 24시간을 원칙으로 합니다.
 2. 제1항의 이용시간은 정기점검 등의 필요로 인하여 당 사이트가 정한 날 또는 시간은 예외로 합니다.
@@ -110,7 +115,7 @@
 
 <div class=input__check">
 <h3>제 4장 서비스 사용 제한 및 계약의 해지</h3>
-<textarea rows="13" cols="100">
+<textarea rows="10" cols="120">
 제 12 조 (이용자의 행동규범 및 서비스 이용제한)
 1. 이용자가 작성 또는 업로드 등에 따라 제공하는 정보의 내용이 허위인 것으로 판명되거나, 허위일 소지가 있다고 의심 될 만한 사유가 발생할 경우 당 사이트는 이용자가 작성 또는 업로드 등에 따라 제공하는 정보에 대한 일체의 서비스를 일부 또는 전부 중지할 수 있으며, 이로 인해 발생하는 불이익에 대해 책임을 부담하지 아니합니다.
 2. 이용자가 당 사이트의 서비스를 통하여 게시, 전송, 입수하였거나 전자메일 기타 다른 수단에 의하여 게시, 전송 또는 입수한 모든 형태의 정보에 대하여는 이용자가 모든 책임을 부담하며 당 사이트는 어떠한 책임도 부담하지 아니합니다.
