@@ -58,9 +58,6 @@
    	.card_photo{
    		width : 100%;
    	}
-	.card_level  {width: 10px; height: 10px;}
-	.card_time   {width: 10px; height: 10px;}
-	.card_star   {width: 10px; height: 10px;}
    
    .popArea {
 	   padding-left: 10%;
