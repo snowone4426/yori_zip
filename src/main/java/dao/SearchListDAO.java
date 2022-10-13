@@ -62,7 +62,7 @@ public class SearchListDAO extends DBConnPool{
     String lv_sort = "";
     
     try {
-      
+     // 정렬 하는 부분 
       switch( pv_type ) {
         case "title":
           lv_sort = "r.title";
@@ -71,7 +71,7 @@ public class SearchListDAO extends DBConnPool{
           lv_sort = "u.nickname";
           break;
         default :
-          lv_sort = "r.created_at";
+          lv_sort = "sc";
           break;
       }
       
@@ -106,8 +106,9 @@ public class SearchListDAO extends DBConnPool{
                   + "  WHERE r.title    LIKE ? "
                   + "    AND u.nickname LIKE ? "
                   + "    AND t.tag_id   LIKE ? "
-//                  + "       group by r.recipe_id, r.thumbnail, r.subtitle, r.title, r.difficulty, r.time, t.tag_id, r.created_at "
-                  + "  ORDER BY "+lv_sort;
+                  + "  ORDER BY "+lv_sort + " desc ";
+      
+    
       
       
       psmt = con.prepareStatement(query);
@@ -137,5 +138,64 @@ public class SearchListDAO extends DBConnPool{
     
     return searchBanList;
   }
+  
+  // 페이징 함수
+//  public static String pagingStr(int totalCount, int perPage, int perBlock, int pageNum, String reqUrl) {
+//    
+//    String pagingStr = "";
+//    
+//    int totalPage = (int)(Math.ceil((double) totalCount/perPage));
+//    
+//    int pageTemp = (((pageNum -1) / perBlock) * perBlock) +1;
+//    
+//    if(pageTemp != 1) {
+//      pagingStr += "<a href ='" + reqUrl + "?pageNum=1' > [첫 리스트] </a>";
+//      pagingStr += "&nbsp;";
+//      pagingStr += "<a href ='" + reqUrl + "?pageNum" + (pageTemp-1) + "'>[이전 리스트]</a>";
+//    }
+//
+//     int pageCount = 1;
+//     while(pageCount <= perBlock && pageTemp <= totalPage) {
+//       if(pageTemp == pageNum) {
+//         pagingStr += "&nbsp;" + pageTemp + "&nbsp;";
+//       }
+//       else {
+//         pagingStr += "&nbsp;<a href='" + reqUrl + "?pageNum=" + pageTemp + "'>" + pageTemp + "</a>&nbsp;";
+//         pageTemp++;
+//         pageCount++;
+//       }
+//     }
+//       if(pageTemp <= totalPage) {
+//         pagingStr += "";
+//         
+//         pagingStr += "<a href ='" + reqUrl + "?pageNum=" + pageTemp + "'>[다음 리스트]</a>";
+//         pagingStr += "&nbsp;";
+//         pagingStr += "<a href ='" + reqUrl + "?pageNum=" + totalPage + "'>[마지막 리스트]</a";
+//       }
+//    return pagingStr;
+//    
+//  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
 }

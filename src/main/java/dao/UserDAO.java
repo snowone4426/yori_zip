@@ -48,14 +48,14 @@ public class UserDAO extends DBConnPool{
     
     try {
         
-        String query = "select * from question";
+        String query = "select question_txt from question";
         psmt = con.prepareStatement(query);
         rs = psmt.executeQuery();
         
         while(rs.next()) {
             
             
-            String contents = rs.getString("contents");
+            String contents = rs.getString("question_txt");
             
             arrList.add(contents);
         }
