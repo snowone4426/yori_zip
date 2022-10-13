@@ -195,7 +195,6 @@ width:577px;
 				<%} else { %>
 				<a href="#" class="female"><img src="assets/mypage_female.png"></a>
 				<%}%>
-			
 
 				<a href="logoutProcess.jsp" class="logout">로그아웃</a>	
 
@@ -206,9 +205,9 @@ width:577px;
 	<ul>
 		<div class="category"><li><a href="#">카테고리<span>|</span></a></li></div>
 		<div class="recent_rcp" ><li><a href="#">최근 본 레시피</a></li></div>
-		<% //if(session.getAttribute("user_id")!=null){ %>
+		<% if(session.getAttribute("user_id")!=null){ %>
 		<div class="recent_reg"><li><a href="#">레시피 등록</a></li></div>
-		<%//} %>	
+		<%} %>	
 	</ul>
 
 </div>
