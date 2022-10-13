@@ -3,7 +3,7 @@ package dao;
 import java.util.List;
 import java.util.Vector;
 import util.DBConnPool;
-import dto.PopularListDTO;
+
 import dto.RecipeObj;
 
 public class PopularListDAO extends DBConnPool{

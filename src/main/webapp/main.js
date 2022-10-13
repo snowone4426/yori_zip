@@ -2,7 +2,7 @@
 function procBanner(){
     var tag = banners[bannerId].tag_id;      // 해당 배너의 tagid
     // 
-    window.location.href = 'http://localhost:8080/yori_zip/searchPage.jsp?search=tag';
+    window.location.href = './searchPage.jsp?search='+tag;
     
 }
 
