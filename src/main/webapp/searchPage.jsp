@@ -9,8 +9,9 @@
    RecipeObj sdto = new RecipeObj();
    String tagid = request.getParameter("search");
    String searchword = request.getParameter("searchword");
-
+   
    List<RecipeObj> searchBanList = new Vector<RecipeObj>();
+   
    
    if(tagid != null) {
    searchBanList = sdao.getBannerSearch(Integer.valueOf(tagid));
@@ -20,9 +21,38 @@
 	   if(searchword != null) {
 	   searchBanList = sdao.getSearchList(searchword, null);
    		}
+   
    }
+   int totalCount = searchBanList.size();
+   
    sdao.close();
    %>
+   
+   
+   <%-- //페이징 처리 시작
+   int totalCount = searchBanList.size();
+   int perPage = Integer.parseInt(application.getInitParameter("POSTS_PER_PAGE"));
+   int perBlock = Integer.parseInt(application.getInitParameter("PAGES_PER_BLOCK"));
+  
+   
+   		//만들어져야 할 전체 페이지 계산
+   	int resultPage = (int)Math.ceil((double)totalCount/perPage);
+   		
+   		//현재 페이지 값 설정 ( 이동해도 현재 있는 곳의 페이지 값을 알 수 있도록 ) 
+   	int pageNum = 1;
+   	String curPage = request.getParameter("pageNum"); 
+   		//현재 페이지가 null이 아니거나 공백이 아니면
+   	if(curPage != null && curPage.equals("")) {
+   			// 현재 페이지 값을 num에 저장
+   		pageNum = Integer.parseInt(curPage);
+   	}
+   		// 첫 게시물 번호 = 1부터
+   		int start = (pageNum-1) * perPage + 1;
+   		// 끝 게시물 번호 = 12 까지
+   		int end = pageNum * perPage;
+   		
+  
+   --%>
 <!DOCTYPE html>
 <html>
    <head>
@@ -97,7 +127,10 @@
             </nav>
          </header>
          <main id="contents">
-         <div class="pageTitle">Popular Recipes</div>
+         <div class="pageTitle">Popular Recipes
+         	
+			<h1><%= "검색된 게시물의 수는 " + totalCount + " 건 입니다." %></h1>
+         </div>
             <div class = "popArea">
                <div class="popmenu">
                   <div class = "cards">
@@ -129,6 +162,8 @@
                         }
                         	%>		
                   </div>
+                  <%--= SearchListDAO.pagingStr(totalCount, perPage, perBlock, pageNum, request.getRequestURI())
+           	--%>
                </div>
             </div>
          </main>
