@@ -8,6 +8,7 @@
 <% 	
 	//댓글 입력한 폼값 받기
 	String reple = request.getParameter("repleText");
+
 %>  
 
 <%
@@ -17,7 +18,7 @@
 	dto.setContents(reple);
 	dto.setUser_id(session.getAttribute("user_id").toString());
 		//dto.setRecipe_id(session.getAttribute("recipe_id").toString());
-	dto.setRecipe_id("6");
+	dto.setRecipe_id("1");
 %>
 
 <%

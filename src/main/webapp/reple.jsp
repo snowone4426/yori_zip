@@ -18,7 +18,6 @@
 <title>reple</title>
 <style>
 
-
 .commentbox {
 	box-sizing: border-box;
 	width: 658px;
@@ -42,9 +41,7 @@
 	font-size: 18px;
 	line-height: 40px;
 	/* identical to box height */
-	display: flex;
-	align-items: center;
-	text-align: center;
+
 	color: #888282;
 }
 .commentText{
@@ -82,7 +79,9 @@
 	text-align: flex-end;
 	color: #888282;
 }
-
+.repleList{
+	align-content:center;
+	}
 .repleList img{
 	width: 20px;
 	height: 20px;
@@ -90,10 +89,13 @@
 
 </style>
 
+
+</style>
+
 </head>
 <body>
 <jsp:include page="nav.jsp"/>
-<jsp:include page="star.jsp"/>
+<!--<jsp:include page="star.jsp"/>-->
 <div class="reple">
 		
 			<form method="post" action="repleProcess.jsp">
@@ -127,10 +129,11 @@
 				</thead>
 				<%
 	RepleDAO dao = new RepleDAO();
-	
+	String recipe_id= request.getParameter("recipe_id");
+	ArrayList<RepleObj> repleList = dao.repleList();
 	/* 페이지 처리 start */
 	//전체 페이지 수 계산
-	
+
 	//web.xml에 저장한 값 가져오기
 	int totalCount = dao.selectCount();
 	
@@ -146,9 +149,8 @@
 	//목록에 출력할 게시물 범위 계산
 	 int start = (pageNum-1) * pageSize +1; //첫 게시물 번호
 	 int end = pageNum * pageSize; //마지막 게시물 번호
-	 System.out.println(start);
-	 System.out.println(end);
-	 List<RepleObj> repleList = dao.selectListPage(start,end);	 
+	
+	 //List<RepleObj> repleList = dao.selectListPage(start,end);	 
 	 dao.close();
 		 /*페이지 처리 완료*/ 
 
@@ -193,11 +195,11 @@
 
 				<tfoot>
 				<tr align="center">
-        	<!-- 페이징 처리 -->
-        	<td><%= ReplePage.pagingStr(totalCount, pageSize, blockPage, pageNum, request.getRequestURI()) %></td>
+        	<!-- 페이징 처리 
+        	<td><%= ReplePage.pagingStr(totalCount, pageSize, blockPage, pageNum, request.getRequestURI()) %></td>-->
 				</tfoot>
 	</table>
 	</div>
-	<jsp:include page="footer.jsp"/>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

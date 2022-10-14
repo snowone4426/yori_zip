@@ -21,7 +21,7 @@
 		count1++;
 	%> <% if(count1==1) {%> <ul> <% } %>
 		<li class = "card">
-		<a href = "http://localhost:8080/yori_zip/recipedetail.jsp?recipe_id=<%=popli.getRecipe_id() %>">
+		<a href = "http://localhost:8080/yori_zip/recipeDetail.jsp?recipe_id=<%=popli.getRecipe_id() %>">
 		<div class="card_frame"><img class = "card_photo" src = "<%=popli.getThumbnail() %>"></div>
 		<div class="card_desc">
 			<div class = "card_subTitle"><%=popli.getSubtitle() %></div> 

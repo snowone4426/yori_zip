@@ -13,34 +13,46 @@ public class RecipeObj {
 	private String time;
 	private String star_score;
 	private String subtitle;
-	private String discription;
+	private String description;
 	private Date create_at;
 	private Date update_at;
 	private String state;
-	private String[] detail_desc;
-	private String[] detail_photo;
+	private String detail_desc;
+	private String detail_photo;
 	private String[] main_category;
 	private String[] sub_category;
-	private String[] ingredient_name;
-	private String[] ingredient_quantity;
+	private String ingredient_name;
+	private String ingredient_quantity;
 	private String nickname;
     private String profile;
+    private String detail_id;
 
-	public RecipeObj () {}
+    
+    
+
+  public RecipeObj () {}
 	
-	public String[] getDetail_desc() {
+  public String getDetail_id() {
+    return detail_id;
+  }
+
+  public void setDetail_id(String detail_id) {
+    this.detail_id = detail_id;
+  }
+
+	public String getDetail_desc() {
 		return detail_desc;
 	}
 
-	public void setDetail_desc(String[] detail_desc) {
+	public void setDetail_desc(String detail_desc) {
 		this.detail_desc = detail_desc;
 	}
 
-	public String[] getDetail_photo() {
+	public String getDetail_photo() {
 		return detail_photo;
 	}
 
-	public void setDetail_photo(String[] detail_photo) {
+	public void setDetail_photo(String detail_photo) {
 		this.detail_photo = detail_photo;
 	}
 
@@ -100,12 +112,12 @@ public class RecipeObj {
 		this.subtitle = subtitle;
 	}
 
-	public String getDiscription() {
-		return discription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDiscription(String discription) {
-		this.discription = discription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public Date getCreate_at() {
@@ -156,19 +168,19 @@ public class RecipeObj {
 		this.star_score = star_score;
 	}
 
-	public String[] getIngredient_name() {
+	public String getIngredient_name() {
 		return ingredient_name;
 	}
 
-	public void setIngredient_name(String[] ingredient_name) {
+	public void setIngredient_name(String ingredient_name) {
 		this.ingredient_name = ingredient_name;
 	}
 
-	public String[] getIngredient_quantity() {
+	public String getIngredient_quantity() {
 		return ingredient_quantity;
 	}
 
-	public void setIngredient_quantity(String[] ingredient_quantity) {
+	public void setIngredient_quantity(String ingredient_quantity) {
 		this.ingredient_quantity = ingredient_quantity;
 	}
 

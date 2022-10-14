@@ -7,11 +7,38 @@
 <title>이용약관</title>
 </head>
 <link rel="stylesheet" href="css/main.css">
-<style>
 
-textarea{
+<style>
+.wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.checkDiv{
+    float: right;
+}
+
+textarea {
     border: 1px solid #D4D4D4;
 }
+
+.wrapper h1{
+   width: 284px;
+   height: 39px;
+   
+   font-family: 'Inika';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 30px;
+   line-height: 39px;
+   
+   display: flex;
+   align-items: center;
+   text-align: center;
+   
+   color: #000000;
+}
+
 
 
 </style>
