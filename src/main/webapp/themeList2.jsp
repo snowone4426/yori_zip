@@ -20,7 +20,7 @@
 			count++;
 			if(count==1) { %> <ul> <% } %> 
 			<li class="card">
-			<a href="http://localhost:8080/yori_zip/recipedetail.jsp?recipe_id=<%=themli.getRecipe_id() %>">
+			<a href="http://localhost:8080/yori_zip/recipeDetail.jsp?recipe_id=<%=themli.getRecipe_id() %>">
 			<img class = "card_photo" src = "<%= themli.getThumbnail()%>"> 
 			<div class="card_desc">
 				<div class = "card_subTitle"><%=themli.getSubtitle() %> </div>

@@ -4,9 +4,7 @@
 <%@page import="dao.RepleDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String myreple_id = request.getParameter("reple_id");
-%>    
-    
+ 
 <link rel="stylesheet" href="css/main.css">
 <!DOCTYPE html>
 <html>
@@ -38,9 +36,7 @@
 	font-size: 18px;
 	line-height: 40px;
 	/* identical to box height */
-	display: flex;
-	align-items: center;
-	text-align: center;
+
 	color: #888282;
 }
 .commentText{
@@ -78,7 +74,9 @@
 	text-align: flex-end;
 	color: #888282;
 }
-
+.repleList{
+	align-content:center;
+	}
 .repleList img{
 	width: 20px;
 	height: 20px;
@@ -121,9 +119,15 @@
 						<th>삭제</th>
 					</tr>
 				</thead>
+
+<% String myreple_id = request.getParameter("reple_id");
+	String recipe_id = request.getParameter("recipe_id");
+%>    
+   
 <%
 
 	RepleDAO dao = new RepleDAO();
+	
 	ArrayList<RepleObj> repleList = dao.repleList();
 	for(RepleObj dto:repleList){
 		
@@ -156,6 +160,6 @@
 <%} %>	
 	</table>
 	</div>
-	<jsp:include page="footer.jsp"/>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

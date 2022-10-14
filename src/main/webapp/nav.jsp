@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<link rel="stylesheet" href="css/main.css">
+
 <style>
 
 

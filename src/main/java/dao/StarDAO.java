@@ -31,26 +31,26 @@ public class StarDAO extends DBConnPool{
     return result;
   }
   
-  public ArrayList starLIst() {
-      ArrayList <Map star> = new ArrayList<>();
-      try {
-        String query = "select * from star";
-        
-        psmt= con.prepareStatement(query);
-        rs=psmt.executeQuery();
-        
-        while(rs.next()) {
-          Map<String, String> star = new HashMap<>();
-          star.put(query, query)
-        }
-        
-      } catch (Exception e) {
-        // TODO: handle exception
-      }
-      
-      
-      
-      return list;
-  }
+//  public ArrayList starLIst() {
+//      ArrayList <Map star> = new ArrayList<>();
+//      try {
+//        String query = "select * from star";
+//        
+//        psmt= con.prepareStatement(query);
+//        rs=psmt.executeQuery();
+//        
+//        while(rs.next()) {
+//          Map<String, String> star = new HashMap<>();
+//          star.put(query, query)
+//        }
+//        
+//      } catch (Exception e) {
+//        // TODO: handle exception
+//      }
+//      
+//      
+//      
+//      return list;
+//  }
       
 }
