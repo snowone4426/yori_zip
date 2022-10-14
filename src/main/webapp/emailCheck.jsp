@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>이메일 찾기</title>
+<title>이메일 중복확인</title>
 </head>
 <body>
 <h1>이메일 중복확인</h1>

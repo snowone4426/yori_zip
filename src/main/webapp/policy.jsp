@@ -6,21 +6,11 @@
 <meta charset="UTF-8">
 <title>이용약관</title>
 </head>
-<link rel="stylesheet" href="css/main.css">
 
-<style>
-.wrapper {
-    display: flex;
-    justify-content: center;
-}
+<link rel="stylesheet" href="css/main.css">  
 
-.checkDiv{
-    float: right;
-}
+<link rel="stylesheet" href="css/policy.css">
 
-textarea {
-    border: 1px solid #D4D4D4;
-}
 
 .wrapper h1{
    width: 284px;
@@ -41,22 +31,19 @@ textarea {
 
 
 
-</style>
-
 <body>
 
 <jsp:include page="nav.jsp"/>
 
-<div class="wrapper" align="center">   
-<form method="post" name="policyForm" id="policy_Form">
+<div class="wrapper">   
+<form method="post" name="policyForm">
 
 <div class="container">
 
 <h1>서비스 이용 약관</h1>
 
-<div class=input__check">
 <h3>제 1장 총칙</h3>
-<textarea rows="10" cols="120">
+<textarea rows="9" cols="130">
 제 1 조 (목적)
 본 약관은 OLIS(Opensource-software License Information System) 웹 사이트 (이하 "당 사이트")가 제공하는 모든 서비스(이하 "서비스")의 이용조건 및 절차, 이용자와 당 사이트간의 권리, 의무, 책임사항과 기타 필요한 사항을 규정함을 목적으로 합니다.
       
@@ -79,11 +66,10 @@ textarea {
 7. 본 약관에서 정의하지 않은 용어는 개별서비스에 대한 별도약관 및 이용규정에서 정의합니다.
 </textarea>
 <br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>     
-</div>     
+     
        
-<div class=input__check">       
 <h3>제 2장 이용계약의 체결</h3>
-<textarea rows="10" cols="120">
+<textarea rows="9" cols="130">
 제 5 조 (이용 계약의 성립)
 1. 이용계약은 신청자가 온라인으로 당 사이트에서 제공하는 소정의 가입신청 양식에서 요구하는 사항을 기록하여 가입을 완료하고 회원가입 버튼을 누르는 것으로 성립됩니다.
 2. 이용계약은 회원 1인당 1개의 ID로 체결하는 것을 원칙으로 합니다.
@@ -120,11 +106,9 @@ textarea {
 3. 이용자는 당 사이트 서비스의 사용 종료시 마다 정확히 접속을 종료하도록 해야 하며, 정확히 종료하지 아니함으로써 제3자가 이용자에 관한 정보를 이용하게 되는 등의 결과로 인해 발생하는 손해 및 손실에 대하여 당 사이트는 책임을 부담하지 아니합니다.
 </textarea>        
 <br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>  
-</div>  
   
-<div class=input__check">  
 <h3>제 3장 서비스의 이용</h3>
-<textarea rows="10" cols="120">
+<textarea rows="9" cols="130">
 제 10 조 (서비스의 이용 시간)
 1. 서비스 이용시간은 당 사이트의 업무상 또는 기술상 특별한 지장이 없는 한 연중 무휴, 1일 24시간을 원칙으로 합니다.
 2. 제1항의 이용시간은 정기점검 등의 필요로 인하여 당 사이트가 정한 날 또는 시간은 예외로 합니다.
@@ -138,11 +122,9 @@ textarea {
 </textarea>
 
 <br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>
-</div>
 
-<div class=input__check">
 <h3>제 4장 서비스 사용 제한 및 계약의 해지</h3>
-<textarea rows="10" cols="120">
+<textarea rows="9" cols="130">
 제 12 조 (이용자의 행동규범 및 서비스 이용제한)
 1. 이용자가 작성 또는 업로드 등에 따라 제공하는 정보의 내용이 허위인 것으로 판명되거나, 허위일 소지가 있다고 의심 될 만한 사유가 발생할 경우 당 사이트는 이용자가 작성 또는 업로드 등에 따라 제공하는 정보에 대한 일체의 서비스를 일부 또는 전부 중지할 수 있으며, 이로 인해 발생하는 불이익에 대해 책임을 부담하지 아니합니다.
 2. 이용자가 당 사이트의 서비스를 통하여 게시, 전송, 입수하였거나 전자메일 기타 다른 수단에 의하여 게시, 전송 또는 입수한 모든 형태의 정보에 대하여는 이용자가 모든 책임을 부담하며 당 사이트는 어떠한 책임도 부담하지 아니합니다.
@@ -170,22 +152,19 @@ textarea {
 <br><input type="checkbox" name="checkbox" id="checkbox"><label>위 약관에 동의합니다.</label>
 </div>
 
-</div>
 
-<div>
 
-    <button type="button" name="Check All" id="CheckAll" onClick="this.value=check(this.form.checkbox)">전부 동의</button>
- 
-    <button type="submit" id="checkBtn" onclick="check_agree()">다음</button>
+<div class="click_button">
 
-</div>
+    <button type="button" name="Check All" onClick="this.value=check(this.form.checkbox)">전부 동의</button>
+    <button type="button" onclick="check_agree()">다음</button>
+
+</div>    
+
 
 </form>
        
 </div>
-
-
-
 
 
 <jsp:include page="footer.jsp"/>
@@ -193,99 +172,5 @@ textarea {
 </body>
 
 
-<script>
-// type="text/javascript"
-//<a href="memberMain.jsp">
-
-/**/
- //버튼에onClick="this.value=check(this.form.checkbox)"
-var checkflag = "false";
-function check(field) {
-if (checkflag == "false") {
-for (i = 0; i < field.length; i++) {
-field[i].checked = true;}
-checkflag = "true";
-//return "Uncheck All"; 
-}
-else {
-for (i = 0; i < field.length; i++) {
-field[i].checked = false; }
-checkflag = "false";
-//return "Check All"; 
-}
-}
-
-function check_agree() {
-	if (document.getElementById('checkbox').checked == true){
-   		
-   		location.href = "memberMain.jsp";
-  	} else {
-  		alert("가입하시려면 모든 약관에 동의하셔야합니다.");
-  	}
- }
-
-/*
-const form = document.querySelector('#policy_Form');
-const checkAll = document.querySelector('.click_button_all button');
-const checkBoxes = document.querySelectorAll('.input__check input');
-const submitButton = document.querySelector('#checkBtn');
-
-const agreements = {
-		checkbox_o : false,
-		checkbox_t : false,
-		checkbox_th : false,
-		checkbox_f : false
-};
-
-form.addEventListener('submit', (e) => e.preventDefault()); // 새로고침(submit) 되는 것 막음
-
-checkBoxes.forEach((item) => item.addEventListener('input', toggleCheckbox));
-
-function toggleCheckbox(e) {
-  const { checked, id } = e.target;  
-  agreements[id] = checked;
-  this.parentNode.classList.toggle('active');
-  checkAllStatus();
-  toggleSubmitButton();
-}
-
-function checkAllStatus() {
-  const { checkbox_o, checkbox_t, checkbox_th, checkbox_f } = agreements;
-  if (checkbox_o && checkbox_t && checkbox_th && checkbox_f) {
-    checkAll.checked = true;
-  } else {
-    checkAll.checked = false;
-  }
-}
-
-function toggleSubmitButton() {
-  const { checkbox_o, checkbox_t, checkbox_th, checkbox_f } = agreements;
-  if (checkbox_o && checkbox_t && checkbox_th && checkbox_f) {
-    submitButton.disabled = false;
-  } else {
-    submitButton.disabled = true;
-  }
-}
-
-checkAll.addEventListener('click', (e) => {
-  const { checked } = e.target;
-  if (checked) {
-    checkBoxes.forEach((item) => {
-      item.checked = true;
-      agreements[item.id] = true;
-      item.parentNode.classList.add('active');
-    });
-  } else {
-    checkBoxes.forEach((item) => {
-      item.checked = false;
-      agreements[item.id] = false;
-      item.parentNode.classList.remove('active');
-    });
-  }
-  toggleSubmitButton();
-});
-*/
-</script>
-
-
+<script type="text/javascript" src="js/policy.js"></script>
 </html>

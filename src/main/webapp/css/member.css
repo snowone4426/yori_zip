@@ -1,0 +1,39 @@
+.wrapper{
+	padding : 30px;
+}
+
+#preview{
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D4D4D4;
+	
+	width : 180px;
+	Height : 180px;
+}
+
+
+.container{
+    Width : 700px;
+    Height : 750px;
+    padding : 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #D4D4D4;
+}
+
+#member_email, #memberPw, #password_check, #answer, #memeber_nick, #member_question, #registerBtn{
+    width : 400px;
+    height: 45px;
+}
+
+
+.wrapper table{
+	border-collapse: separate;
+    border-spacing: 0 10px;
+
+}
+
+table input{
+    background-color: #ECECEC;
+
+}

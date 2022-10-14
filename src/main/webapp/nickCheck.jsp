@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>닉네임 중복확인</title>
 </head>
 <body>
 <h1>닉네임 중복확인</h1>
